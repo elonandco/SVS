@@ -1,0 +1,245 @@
+video {
+	 position: fixed;
+	 top: 50%;
+     left: 50%;
+     min-width: 100%;
+     min-height: 100%;
+     width: auto;
+     height: auto;
+     z-index: -100;
+     -webkit-transform: translateX(-50%) translateY(-50%);
+     -ms-transform: translateX(-50%) translateY(-50%);
+     transform: translateX(-50%) translateY(-50%);
+     background-size: cover;
+     -webkit-transition: 1s opacity;
+     transition: 1s opacity;
+}
+
+body.home {
+	
+	/*background: url(../images/home/mobile-svs-background.jpg) center center no-repeat;*/
+	background-size: cover;
+	height: 100%;
+	text-align: center;
+
+	@include respond(retina){
+		/*background-image: url(../images/home/mobile-svs-background@2x.jpg)*/
+	}
+
+	@include respond(large) {
+		/*background-image: url(../images/home/svs-background.jpg);*/
+		background-color: green;
+	}
+
+	.logo {
+		text-indent: -10000px;
+		margin: 8px auto 50px auto;
+		height: 36px;
+		width: 206px;
+		background: url(../images/home/mobile-svs-logo.png) center center no-repeat;
+		background-size: contain;
+
+		@include respond(retina){
+			background-image: url(../images/home/mobile-svs-logo@2x.png);
+		}
+
+		@include respond(large) {
+			background-image: url(../images/home/mobile-svs-logo.png);
+			position: absolute;
+			top: 10px;
+			left: 20px;
+			width: 279px;
+			height: 50px;
+		}
+	}
+
+	.home-content {
+		padding: 0 15px;
+
+		@include respond(large) {
+			position: absolute;
+			width: 100%;
+			max-width: 850px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+	}
+
+	.tagline {
+		font-size: 25px;
+		color: #FFF;
+		letter-spacing: 1px;
+		line-height: 110%;
+		margin-bottom: 50px;
+
+		@include respond(large) {
+			font-size: 47px;
+			letter-spacing: 2px;
+		}
+	}
+
+	.input-container {
+		background: #FFF;
+		border-radius: 10px;
+		margin: 20px 0;
+		height: 45px;
+		position: relative;
+		// overflow: hidden;
+
+		@include respond(large) {
+			float: left;
+			width: 31%;
+			height: 60px;
+
+			&.profession {
+				/*width: 64%;*/
+				width: 42%;
+				margin-right: 3%;
+				/*margin-right: 5%;*/
+			}
+
+			/*Brian Added*/
+			&.near {
+				margin-right: 3%;
+			}
+
+			&.within {
+				width: 21%;
+			}
+			/*Brian Added*/
+		}
+		
+	}
+
+	.search-label {
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0 0 0 12px;
+		line-height: 45px;
+		color: #a9abae;
+		font-size: 12px;
+
+		@include respond(large) {
+			line-height: 60px;	
+			padding-left: 20px;
+			font-size: 16px;
+		}
+	}
+
+	.twitter-typeahead {
+		width: 100%;
+		height: 100%;	
+	}
+
+	.tt-dropdown-menu {
+		background-color: #FFF;
+		width: 100%;
+		text-align: left;
+		margin-top: -10px;
+		border-top: 1px solid #CCC;
+		border-radius: 0 0 10px 10px;
+		
+
+		.tt-suggestion {
+			padding: 10px 0;
+			padding-left: 60px;
+			border-bottom: 1px solid #EEE;
+			font-size: 12px;
+
+			@include respond(large) {
+				padding-left: 90px;
+				font-size: 16px;
+			}
+
+			
+			&:last-child {
+				border-bottom: none;
+			}
+		}
+
+		.tt-suggestion:hover,
+		.tt-cursor {
+			background-color: rgba($blue,.1);
+		}
+	}
+
+	.search-input {
+		height: 100%;
+		width: 100%;
+		border: none;
+		background: transparent;
+		padding-left: 60px;
+		font-size: 12px;
+		font-family: $sans-serif;
+		font-weight: 100px;
+		outline: none;
+
+		@include respond(large) {
+			font-size: 16px;
+			padding-left: 90px;
+		}
+	}
+
+
+	.search-select {
+		height: 100%;
+		width: 40%;
+		border: none;
+		background: transparent;
+		padding-left: 60px;
+		font-size: 12px;
+		font-family: $sans-serif;
+		font-weight: 100px;
+		outline: none;
+
+		/*Brian Added*/
+		position: absolute;
+		right: 0;
+		/*Brian Added*/
+
+		@include respond(large) {
+			font-size: 16px;
+			padding-left: 90px;
+		}
+	}
+
+
+
+	::placeholder {
+		color: #bfbfbf;
+	}
+
+	.submit-button {
+		width: 100%;
+		padding: 14px 0;
+		border-radius: 10px;
+		background: $blue;
+		color: #FFF;
+		border: none;
+		font-size: 16px;
+		
+		font-family: $sans-serif;
+
+		@include respond(large) {
+			width: auto;
+			border-radius: 5px;
+			padding: 5px 25px;
+			
+			margin-top: 30px;
+		}
+	}
+
+	.menu {
+		margin-top: 20px;
+
+		@include respond(large) { 
+			margin: 0;
+			position: absolute;
+			top: 10px;
+			right: 20px;
+		}
+	}
+
+}

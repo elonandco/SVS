@@ -1,0 +1,61 @@
+.page-bids {
+	.page-title.centered {
+		text-align: center;
+	}
+}
+
+.bids-listing {
+	
+	.bid-listing-item {
+		border-bottom: 1px solid #dfdfe0;
+		padding: 15px 0;
+		overflow: hidden;
+		position: relative;
+
+		&:last-child {
+			margin-bottom: 25px;
+		}
+	}
+
+	.vendor-image {
+		float: left;
+		width: 90px;
+		height: 90px;
+		background-color: #d5d5d5;
+		border-radius: 5px;
+		margin-right: 25px;
+
+		&.vendor-image-add {
+			border: 1px dashed $light-grey;
+			text-align: center;
+			background: #f2f2f2 url(../images/bid/new-bid.png) center center no-repeat;
+			background-size: 25px 25px;
+		}
+	}
+
+	.vendor-bid {
+		font-size: 22px;
+		color: #808082;
+		margin: 15px 0;
+
+		@include respond(medium){
+			font-size: 30px;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translateY(-50%);
+			margin: 0;
+		}
+	}
+
+	.vendor-name {
+		font-size: 23px;
+		margin: 10px 0 10px 0;
+	}
+
+	.vendor-date {
+		font-size: 14px;
+		color: #808082;
+	}
+
+}

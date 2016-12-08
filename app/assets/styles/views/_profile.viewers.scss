@@ -1,0 +1,42 @@
+.profile-viewer {
+	border: 1px solid $light-grey;
+	padding: 15px;
+	border-radius: 5px;
+	margin: 15px 0;
+	overflow: hidden;
+
+	.viewer-avatar {
+		float: left;
+		border-radius: 50%;
+		overflow: hidden;
+		width: 75px;
+		height: 75px;
+		margin-bottom: 15px;
+	}
+
+	.viewer-details {
+		margin-left: 90px;
+	}
+
+	.viewer-name {
+		font-size: 24px;
+		margin-bottom: 10px;
+	}
+
+	.viewer-company {
+		font-size: 13px;
+	}
+
+	.viewer-dates {
+		clear: both;
+	}
+
+	.viewer-date-label {
+		font-size: 13px;
+		line-height: 150%;
+	}
+
+	.viewer-date-value {
+		font-size: 16px;
+	}
+}

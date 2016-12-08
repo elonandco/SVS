@@ -1,0 +1,77 @@
+html {
+	height: 100%;
+}
+
+body {
+	font-family: 'FuturaStd', sans-serif;
+	letter-spacing: 1px;
+	font-size: 13px;
+	color: #333333;
+	padding-top: 56px;
+
+	@include respond(medium){
+		padding-top: 70px;
+	}
+}
+
+input, textarea, select {
+	font-family: 'FuturaStd', sans-serif;
+}
+
+a {
+	color: $blue;
+	text-decoration: none;
+
+	 &:hover {
+	 	text-decoration: underline;
+	 }
+}
+
+.container {
+	max-width: $site-width;
+	padding: 0 15px;
+	margin: 0 auto;
+}
+
+.page-title {
+	color: $blue;
+	font-size: 25px;
+	border-bottom: 1px solid $light-grey;
+	padding: 20px 0;
+	margin: 10px 0 0 0;
+	font-weight: bold;
+
+	small {
+		font-size: 50%;
+		color: #808080;
+		display: block;
+		font-weight: normal;
+		line-height: 150%;
+		margin: 5px 0;
+	}
+}
+
+.section-title {
+	font-size: 25px;
+	color: $mid-grey;
+	margin: 35px 0 10px 0;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.logo-container, .page-content, .menu-overlay, .footer{	
+	@include respond(small-only){
+		transition: transform .25s ease-in-out;
+		.show-nav & {
+			transform: translate($nav-width);
+			transform: translate3d($nav-width, 0, 0);
+		}
+
+		.show-options & {
+			transform: translate(-$nav-width);
+			transform: translate3d(-$nav-width, 0, 0);
+		}
+	}
+}

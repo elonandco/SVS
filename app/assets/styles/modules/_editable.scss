@@ -1,0 +1,71 @@
+.section-editable {
+	border: 1px solid $light-grey;
+	padding: 15px 15px 15px 15px;
+	border-radius: 5px;
+	line-height: 150%;
+	position: relative;
+	margin-bottom: 20px;
+
+	.form-label {
+		display: block;
+		font-weight: bold;
+		margin-top: 10px
+	}
+
+	.edit-link {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: 0;
+		background-color: $light-grey;
+		padding: 5px 10px;
+		color: $blue;
+		text-decoration: none;
+	}
+
+	.profile-input, 
+	.profile-select,
+	.us-states,
+	.profile-textarea {
+		width: 100%;
+		border: 1px solid $light-grey;
+		border-radius: 5px;
+		height: 25px;
+		padding: 0 10px;
+		font-size: 13px;
+		letter-spacing: 1px;
+		margin: 3px 0;
+	}
+
+	.profile-textarea {
+		padding: 10px;
+		height: 8em;
+	}
+
+	.city {
+		width: 45%;
+	}
+
+	.us-states {
+		width: 25%;
+		height: 25px;
+	}
+
+	.zip {
+		width: 25%;
+	}
+
+	.input-wrapper {
+		position: relative;
+
+		.fi {
+			position: absolute;
+			right: 10px;
+			top: 50%;
+			transform: translateY(-50%);
+			font-size: 18px;
+			color: #333;
+			pointer-events: none;
+		}
+	}
+}

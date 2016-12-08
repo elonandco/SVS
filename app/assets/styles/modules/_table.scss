@@ -1,0 +1,15 @@
+table.full {
+	width: 100%;
+
+	th {
+		border-bottom: 1px solid $light-grey;
+		text-align: left;
+		padding: 5px 0;
+		font-size: 13px;
+		font-weight: bold;
+	}
+
+	td {
+		padding: 5px 0;
+	}
+}

@@ -1,0 +1,31 @@
+
+$rating-width: 168px;
+$rating-height: 16px;
+
+$rating-width-small: 168px * .65;
+
+.rating {
+	display: inline-block;
+	height: 16px;
+	width: 168px;
+	background: url(../images/common/rating-sprite.png) -168px 0 no-repeat;
+	
+	@for $i from 1 through 7 {
+		&.rating-#{$i} {
+			background-position: (-168px/7) * (7-$i) 0px ;
+		}
+	}
+
+	&.rating-small {
+		height: 18px * .65;
+		width: $rating-width-small;
+		background-position: -$rating-width-small -17px;
+
+		@for $i from 1 through 7 {
+			&.rating-#{$i} {
+				background-position: (-$rating-width-small/7) * (7-$i) -17px ;
+			}
+		}
+	}
+
+}

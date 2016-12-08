@@ -1,0 +1,43 @@
+.popover {
+	position: absolute;
+	width: 320px;
+	top: 100%;
+	left: 50%;
+	transform: translate(-50%, 5px);
+	z-index: 2;
+
+	&:before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 15px;
+		height: 15px;
+		background-color: $mid-grey;
+		transform: translate(-50%, -50%) rotate(45deg);
+	}
+	
+
+	.modal-close {
+		display: none;
+	}
+
+	.modal-content {
+		border-radius: 5px;
+		background: $light-grey;
+		overflow: hidden;
+	}
+
+	.modal-section {
+		max-height: 220px;
+		overflow: auto;
+	}
+
+	.modal-title {
+		background-color: $mid-grey;
+		color: #FFF;
+		padding: 5px 10px;
+		font-size: 19px;
+		line-height: normal;
+	}
+}

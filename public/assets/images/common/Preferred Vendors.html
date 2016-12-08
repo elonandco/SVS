@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+<title>SVS Backend</title>
+<style>
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.sponsor-section {
+    display: inline-block;
+    margin: 30px;
+}
+.search-sponsors {
+    display: inline-block;
+    width: 100%;
+    margin: 20px 0;
+}
+.search-sponsors .sort {
+    margin: 10px 0;
+}
+.sort .search-option input {
+    margin: 0px 5px 0 10px;
+}
+.sort .search-option:first-child input {
+    margin: 0px 5px 0 0;
+}
+.search-sponsors .vendor-search {
+    font-size: 15px;
+    -webkit-appearance: none;
+    border: solid 1px #ccc;
+    padding: 7px 0;
+}
+.sponsor-section .search-sponsors .submit {
+    float: none;
+}
+.sponsored-table {
+    border-spacing: 0;
+    border-top: solid 1px #ccc;
+    border-left: solid 1px #ccc;
+}
+.sponsored-table th, .sponsored-table td {
+    text-align: left;
+	padding: 5px 20px 5px 5px;
+}
+.sponsored-table .ifSponsored {
+    text-align: center;
+    padding: 0;
+}
+.sponsored-table .table-header {
+	background: #ccc;
+}
+.sponsored-table td {
+    border-bottom: solid 1px #ccc;
+    border-right: solid 1px #ccc;
+    font-size: 15px;
+}
+.sponsor-section .submit,
+.sponsor-section .update {
+    float: right;
+    margin: 10px 0 0 0;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.templates {
+    height: 0;
+    width: 0;
+    position: absolute;
+    overflow: hidden;
+    opacity: 0;
+}
+.search-by {
+    display: block;
+    margin: 0 0 10px 0;
+}
+.sponsor-section h2 {
+    margin: 0;
+    padding: 0;
+    text-decoration: underline;
+}
+.sort .search-option {
+    font-size: 14px;
+}
+.button {
+    display: inline-block;
+    width: 648px;
+}
+h4 {
+    margin: 20px 0 5px 0;
+}
+h4.request-sent {
+    margin: 10px 0 5px 0;
+}
+.request,.response {
+    width: 606px;
+    border: #ccc solid 1px;
+    background: #f1f1f1;
+    padding: 20px;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+<div class="sponsor-section">
+<h2>Add Sponsors</h2>
+<div class="search-sponsors">
+<span class="search-by">Search through:</span>
+<div class="sort">
+    <span class="search-option"><input type="radio" name="sponsor" value="company" checked="checked">Company Names</span>
+    <span class="search-option"><input type="radio" name="sponsor" value="email">Emails</span>
+    <span class="search-option"><input type="radio" name="sponsor" value="phone">Phone Numbers</span>
+</div>
+<span class="search-by">For:</span>
+<input class="vendor-search" type="search" placeholder="Search Vendors">
+</div>
+<table class="sponsored-table">
+  <tr class="table-header">
+  	<th>Sponsored</th>
+    <th class="company">Company Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+  </tr>
+</table>
+<div class="button"><button class="submit" type="submit">Submit</button></div>
+<h4>Response Received</h4>
+<textarea class="response" rows="4" cols="50"></textarea>
+<div class="button"><button class="update" type="submit">Update Table</button></div>
+<h4 class="request-sent">Request Sent</h4>
+<div class="request">
+</div>
+</div>
+<table class="templates">
+  <tr class="new-row" index="">
+    <td class="ifSponsored"><input type="checkbox" name="sponsored" value="true"></td>
+    <td class="company"></td>
+    <td class="email"></td>
+    <td class="phone"></td>
+  </tr>
+</table>
+<script src="http://elonandcompany.com/Test/TAS/js/jquery.js"></script>
+<script>
+$.ajax({
+  url: "http://svs.elonandcompany.com/api/vendor?field=name&term=Dope%20Crochet",
+  dataType: "json",
+  success: function(response){
+    console.log(response)
+
+  }
+});
+
+
+
+
+var sponsors = [{
+		ifSponsored: true,
+		company: "Elon",
+		email: "elon@elonandcompany.com",
+		phone: "512 789 6508"
+},{
+		ifSponsored: false,
+		company: "Ericka",
+		email: "erica@elon@elonandcompany.com",
+		phone: "512 994 9012"
+},{
+		ifSponsored: false,
+		company: "Terry",
+		email: "terry@elonandcompany.com",
+		phone: "512 789 6508"
+},{
+		ifSponsored: true,
+		company: "Zach",
+		email: "zach@elonandcompany.com",
+		phone: "541 460 1131"
+},{
+		ifSponsored: false,
+		company: "Jameson",
+		email: "jameson@elon@elonandcompany.com",
+		phone: "210 789 3688"
+}],
+
+justUpdated = [],
+updateIndex = 0,
+searchColumn = $('.sort input:checked').val();
+
+$('.response').html(JSON.stringify(sponsors));
+
+var addTableRow = function(appendTo,template){
+        //clone template
+        var latest_row = $(template).clone();
+        //append template
+        $(appendTo).append(latest_row);
+        //return newly appended row
+        return latest_row
+}
+
+var addContent = function(row,obj){
+        //we assume the prop name is the same as the class name its append to
+        var content;
+        for (var prop in obj) {
+          //if the property isn't isSponsored
+          if(prop !== "ifSponsored"){
+            content = obj[prop];
+          //if the property is isSponsored and true
+          }else if(obj[prop]){
+            content = '<input type="checkbox" name="sponsored" checked="checked" value="true">';
+          //if the property is isSponsored and false
+          }else{
+            content = '<input type="checkbox" name="sponsored" value="true">';
+          }
+            //add content to each table data in row
+            row.find('.' + prop).html(content);
+        }
+}
+
+var loadTable = function(){
+        $.each(sponsors,function(index,account_info){
+            //add new row
+            var new_row = addTableRow('.sponsored-table','.templates .new-row');
+            //add content to row
+            addContent(new_row,account_info);
+        });
+}
+
+var deleteTable = function(){
+        $('.sponsored-table .new-row').remove();
+}
+
+$('.vendor-search').keyup(function(e){
+    //define search value. Covert all characters to lower case for matching purposes
+    var searchVal = $(this).val().toLowerCase(),
+    backspace = e.keyCode === 8 || e.keyCode === 46,
+    tableRows = (!backspace) ? $('.new-row:visible') : $('.new-row:hidden');
+
+    $(tableRows).each(function(){
+        //define table value. Covert all characters to lower case for matching purposes
+        var tableVal = $(this).find('.'+searchColumn).text().toLowerCase();
+        //hide if they don't match
+        if(backspace){
+            if(tableVal.indexOf(searchVal) !== -1) $(this).show();
+        }else{
+            if(tableVal.indexOf(searchVal) === -1) $(this).hide();
+        }
+    });
+});
+
+loadTable();
+//anytime you change input, update Search Column variable
+$('.sort input').change(function(){
+    searchColumn = $(this).val();
+});
+$('body').on('change','.ifSponsored input',function(){
+    var account,
+    row = $(this).parent().parent();
+
+    //add row
+    if(!row.hasClass('updated')){
+        row.addClass('updated').attr('index',updateIndex);
+        account = {
+            ifSponsored: row.find('.ifSponsored input').prop("checked"),
+            email: row.find('.email').text()
+        }
+        justUpdated.push(account);
+        updateIndex++;
+    //edit row
+    }else{
+        justUpdated[row.attr('index')] = {
+            ifSponsored: row.find('.ifSponsored input').prop("checked"),
+            email: row.find('.email').text()
+        }
+    }
+});
+$('.submit').click(function(){
+    $('.request').html(JSON.stringify(justUpdated));
+    justUpdated = [];
+    $('.updated').removeClass('updated');
+})
+
+$('.update').click(function(){
+    sponsors = JSON.parse($('.response').val());
+    console.log(sponsors)
+    deleteTable();
+    loadTable();
+})
+</script>
+</body>
+</html>

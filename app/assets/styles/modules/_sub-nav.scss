@@ -1,0 +1,39 @@
+.sub-nav {
+	background: $light-grey;
+	height: 36px;
+	line-height: 36px;
+
+	.container {
+		position: relative;
+		height: 100%;
+	}
+
+	.nav-list {
+		float: right;
+
+		.nav-item {
+			display: inline-block;
+			position: relative;
+		}
+
+		.nav-link {
+			color: $blue;
+			text-decoration: none;
+			margin-left: 15px;
+			font-size: 15px;
+		}
+	}
+
+	
+
+	.reviews {
+		float: left;
+		font-size: 10px;
+		margin-left: 125px;
+
+		.stars {
+			height: 12px;
+			margin-right: 10px;
+		}
+	}
+}

@@ -1,0 +1,81 @@
+.hamburger {
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 48px;
+	height: 100%;
+	overflow: hidden;
+	z-index: 21;
+
+	@include respond(medium){
+		display: none;
+	}
+
+    .menu-text {
+        position: absolute;
+        top: 50%;
+        margin-top: -2px;
+        margin-left: 10px;
+        font-size: 0;
+        text-indent: -1000px;
+        height: 4px;
+        width: 28px;
+        background: $blue;
+        transition: background 0s;
+        transition-delay: .2s;
+
+        .show-nav & {
+			background: rgba($blue,0)
+		}
+
+		&:before, &:after {
+			content: ' ';
+			position: absolute;
+			width: 100%;
+			height: 4px;
+			left: 0;
+			background: $blue;
+			transition: top .2s .2s, transform .2s;
+
+			.show-nav & {
+				transition: top .2s, transform .2s .2s;
+				top: 0;
+			}
+		}
+
+		/* Haburger to X Animation */
+        &:before {
+			top: -8px;
+			.show-nav & {
+				transform: rotate(45deg);
+			}
+        }
+
+        &:after {
+			top: 8px;
+			.show-nav & {
+				transform: rotate(-45deg);
+			}
+        }
+    }
+}
+
+.search-icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 48px;
+	height: 100%;
+	background: url(../images/common/search.png) center center no-repeat;
+	background-size: 75% auto;
+
+	@include respond(medium){
+		display: none;
+	}
+
+	.menu-text {
+		font-size: 0;
+        text-indent: -1000px;
+	}
+}

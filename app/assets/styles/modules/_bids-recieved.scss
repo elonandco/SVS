@@ -1,0 +1,48 @@
+.bid-recieved-list {
+
+	.bid-recieved-item {
+		border-bottom: 1px solid #dfdfe0;
+		padding: 15px 0;
+		overflow: hidden;
+	}
+	
+	.bid-image {
+		float: left;
+		width: 75px;
+		height: 75px;
+		background-color: #d5d5d5;
+		border-radius: 5px;
+		overflow: hidden;
+		margin-right: 15px;
+	}
+
+	.bid-content {
+		margin-left: 90px;
+	}
+
+	.bid-name {
+		font-size: 23px;
+		margin: 5px 0 5px 0;
+		color: $blue;
+	}
+
+	.bid-description {
+		margin: 10px 0 10px 0;
+		line-height: 150%;
+	}
+
+	.bid-due-date {
+		color: $error-red;
+		margin: 10px 0 10px 0;
+	}
+
+	.bid-actions {
+		float: right;
+		margin-top: 15px;
+
+		.bid-action-item {
+			display: inline-block;
+			margin: 0 5px;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+@mixin r($media) {
+    
+    @if $media == small {
+        @media #{$small-up} { @content; }
+    }
+    @else if $media == small-only {
+        @media #{$small-only} { @content; }
+    }
+    @else if $media == medium {
+        @media #{$medium-up} { @content; }
+    }
+    @else if $media == medium-only {
+        @media #{$medium-only} { @content; }
+    }
+    @else if $media == large {
+        @media #{$large-up} { @content; }
+    }
+    
+    @else if $media == xlarge {
+        @media #{$xlarge-up} { @content; }
+    }
+    
+    @else if $media == xxlarge {
+        @media #{$xxlarge-up} { @content; }
+    }
+
+    @else if $media == retina {
+        @media screen and (-webkit-min-device-pixel-ratio: 2) { @content; }
+    }
+
+    @else if $media == short {
+        @media (max-height: 720px) { @content; }
+    }
+
+    @else if $media == xshort {
+        @media (max-height: 375px) { @content; }
+    }
+
+        
+
+}
+
+@mixin respond($media...) {
+    @each $mediatype in $media {
+        @include r($mediatype) {@content}
+    }
+}

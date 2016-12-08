@@ -1,0 +1,1 @@
+<span class="rating rating-{{ $rating or '0' }} rating-{{ $size or 'normal' }}"></span>

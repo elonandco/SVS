@@ -1,0 +1,97 @@
+.hero {
+	height: 260px;
+	background: url(../images/temp/user-hero.jpg) center center no-repeat;
+	background-size: cover;
+	position: relative;
+	color: #FFF;
+
+	.hero-wrapper {
+		background:	linear-gradient(to bottom, rgba(0,0,0,0) 33%, rgba(0,0,0,0.7) 100%);
+	}
+
+	.container {
+		position: relative;
+		height: 260px;
+	}
+
+	.hero-content {
+		position: absolute;
+		bottom: 0;
+		left: 140px
+	}
+
+	.company,
+	.form-control {
+		font-size: 29px;
+		font-weight: bold;
+		margin: 10px 0;
+		color: #FFF;
+	}
+
+	.category {
+		font-size: 13px;
+		font-weight: bold;
+		margin: 10px 0;
+	}
+
+	.hero-edit-link {
+		position: absolute;
+		right: 15px;
+		top: 5px;
+		margin-left: 20px;
+		border-radius: 5px;
+		color: #FFF;
+		padding: 10px 10px;
+		border-radius: 5px;
+		background: rgba(#000,.6);
+	}
+
+
+	.profile-avatar {
+		position: absolute;
+		left: -125px;
+		bottom: -30px;
+		overflow: hidden;
+		width: 115px;
+		height: 115px;
+		line-height: normal;
+
+		&:after {
+			content: '';
+			position: absolute;
+			box-shadow: inset 0 0 2px 2px rgba(#000,.2);
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			border-radius: 50%;
+			border: 3px solid #FFF;
+		}
+
+		img {
+			border-radius: 50%;
+		}
+
+		.uploader a {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			text-align: center;
+			z-index: 1;
+		}
+
+		.edit-link {
+			position: absolute;
+			top: 70%;
+			left: 50%;
+			padding: 5px 10px;
+			border-radius: 5px;
+			background: rgba(#000,.4);
+			color: #FFF;
+			margin-left: 0;
+			transform: translate(-50%,-50%);
+		}
+	}
+}

@@ -1,0 +1,173 @@
+.page-profile {
+
+	
+
+	.form-control {
+		width: 100%;
+		border: 1px solid $light-grey;
+		border-radius: 5px;
+		padding: 5px;
+		font-family: $sans-serif;
+		font-size: 14px;
+		background: transparent;
+	}
+
+	.placeholder {
+		color: $mid-grey;
+	}
+
+	.services-list {
+		list-style: disc;
+		padding-left: 20px;
+		margin: 10px 0;
+
+		.delete {
+			display: inline-block;
+			text-align: center;
+			line-height: 13px;
+			text-decoration: none;
+			background: #333;
+			border-radius: 50%;
+			color: #FFF;
+			width: 15px;
+			height: 15px
+		}
+	}
+
+	.project-gallery {
+		margin: 20px 0;
+		overflow: hidden;
+
+		.project-list {
+			@include block-grid(6);
+		}
+
+		.project-item {
+			
+		}
+
+		.project-link {
+			display: block;
+			height: 112px;
+			border-radius: 5px;
+			background-color: $light-grey;
+			position: relative;
+
+			span {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				font-size: 11px;
+				background: $blue;
+				color: #FFF;
+				white-space: nowrap;
+				border-radius: 3px;
+				padding: 8px;
+				transform: translate(-50%,-50%);
+			}
+		}
+
+		.project-image {
+			// margin: 10px 0;
+			width: 100%;
+			// height: 100%;
+			border-radius: 5px;
+		}
+	}
+
+	.breakdown {
+		border-top: 1px solid $light-grey;
+		
+		.rating {
+			margin: 20px 0;
+		}
+		
+		.breakdown-item {
+			margin: 5px 0;
+			font-size: 13px;
+			line-height: 20px;
+		}
+
+		.breakdown-bar {
+			display: inline-block;
+			vertical-align: middle;
+			height: 20px;
+			width: 220px;
+			background: $light-grey;
+
+			span {
+				display: block;
+				height: 100%;
+				background-color: $blue;
+				width: 0;
+			}
+		}
+
+
+	}
+
+	.review {
+		font-size: 13px;
+		margin: 20px 0;
+		padding: 20px 0 0 0;
+		border-top: 1px solid $light-grey;
+
+		.review-title {
+			font-weight: bold;
+			line-height: 135%;
+			
+		}
+
+		.review-meta {
+			color: $mid-grey;
+			margin: 5px 0 10px 0;
+		}
+
+		.review-comments {
+			margin: 5px 0;
+			line-height: 135%;
+		}
+	}
+
+
+	.visit {
+
+		line-height: normal;
+		padding: 30px 15px;
+		position: relative;
+		border-top: 1px solid $mid-grey;
+		
+		.visit-avatar {
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			left: 15px;
+			top: 50%;
+			transform: translateY(-50%);
+
+			img {
+				border-radius: 50%;
+			}
+		}
+
+		.visit-name, .visit-company {
+			margin-left: 60px;
+			margin-right: 30px;
+			font-size: 14px;
+		}
+
+		.visit-company {
+			font-size: 10px;
+			font-style: italic;
+		}
+
+		.visit-date {
+			position: absolute;
+			right: 15px;
+			top: 30px;
+		}
+
+	}
+	
+	
+}

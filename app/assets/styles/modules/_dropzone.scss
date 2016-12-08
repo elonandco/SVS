@@ -1,0 +1,129 @@
+/*
+ * The MIT License
+ * Copyright (c) 2012 Matias Meno <m@tias.me>
+ */
+
+.dropzone { 
+    position: relative;
+
+    .dz-message {
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .dz-previews {
+        overflow: hidden;
+    }
+
+    .dz-preview {
+        float: left;
+        width: 50%;
+        padding-bottom: 50%;
+        height: 0;
+        overflow: hidden;
+        position: relative;
+        border-radius: 5px;
+
+        @include respond (medium) {
+            width: 16.666%;
+            padding-bottom: 16.666%;
+        }
+
+        .dz-image {
+          display: none;
+        }
+    }
+
+    .dz-details {
+        position: absolute;
+        background-color: $light-grey;
+        top: 5%;left: 5%;
+        height: 90%;
+        width: 90%;
+        text-align: center;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .dz-details-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        font-size: 11px;
+    }
+
+    .dz-remove {
+        position: absolute;
+        top: 5%;
+        right: 5%;
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        color: #FFF;
+        font-size: 0;
+        background-color: rgba(#000,.5);
+        border-top-right-radius: 5px;
+
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 20%;
+            width: 60%;
+            height: 2px;
+            margin-top: -1px;
+            background-color: #FFF;
+            transform: rotate(-45deg);
+        }
+
+        &:after {
+            transform: rotate(45deg);
+        }
+
+        &:hover {
+            text-decoration: none;
+            background-color: rgba(#000,.9);
+        }
+    }
+}
+
+.dz-drag-hover {
+  border: 1px dashed $blue;
+
+}
+.dropzone .dz-preview .dz-progress {
+    display: block;
+    height: 15px;
+    border: 1px solid #aaa;
+    margin: 10px 0;
+}
+.dropzone .dz-preview .dz-progress .dz-upload {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: green;
+}
+.dropzone .dz-preview .dz-error-message {
+    color: red;
+    display: none;
+}
+.dropzone .dz-preview {
+
+  // .dz-size {
+  //   position: absolute;
+  //   top: 15px; right: 0;
+  // }
+
+}
+
+.dropzone .dz-preview.dz-error .dz-error-message { display: block }
+.dropzone .dz-preview.dz-error .dz-progress,
+.dropzone .dz-preview.dz-success .dz-progress { display: none; }
+
+.dropzone .dz-preview .dz-error-mark,
+.dropzone .dz-preview .dz-success-mark {
+    display: none;
+}
